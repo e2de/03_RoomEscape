@@ -44,8 +44,8 @@ private:
 
 	// Find the owning Actor (ptr)
 	AActor* Owner;
-	UPROPERTY(VisibleAnywhere)
-		AActor * ActorThatOpens; // pawn inherits from actor
 
-		
+	// Return total mass of actors on plate
+	float GetTotalMassOfActorsOnPlate() const;
+	
 };
