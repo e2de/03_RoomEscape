@@ -16,14 +16,12 @@ public:
 	// Sets default values for this component's properties
 	UOpenDoor();
 
-protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 	void OpenDoor();
 	void CloseDoor();
 
-public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
@@ -35,7 +33,7 @@ private:
 		float ClosedAngle = -90.f;
 
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume * PressurePlate;
+	ATriggerVolume * PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 0.10f;
@@ -43,7 +41,7 @@ private:
 	float LastDoorOpenTime;
 
 	// Find the owning Actor (ptr)
-	AActor* Owner;
+	AActor* Owner = nullptr;
 
 	// Return total mass of actors on plate
 	float GetTotalMassOfActorsOnPlate() const;
