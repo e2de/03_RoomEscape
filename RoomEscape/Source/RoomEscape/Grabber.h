@@ -21,9 +21,9 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+
 	
 private:
 	// How far ahead of the player can we reach? in cm
@@ -34,10 +34,18 @@ private:
 	// Input Handler
 	UInputComponent * InputHandle = nullptr;
 
-	// ray casts and grabs what's in reach
+	// Ray casts and grabs what's in reach
 	void Grab();
 
+	// Called when grab is released
 	void Release();
 
+	// Finding PhysicsHandleComponent
+	void FindPhysicsHandleComponent();
 
+	// Setup (assumed) attached Input Component
+	void SetupInputComponent();
+
+	// Return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyInReach();
 };
